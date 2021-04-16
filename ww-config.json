@@ -1,0 +1,34 @@
+{
+  "componentPath": "./src/wwElement.vue",
+  "editor": {
+    "label": {
+      "en": "Rich text summary"
+    },
+    "settingsOptions": {
+      "getTitles": {
+        "type": "Button",
+        "label": null,
+        "options": {
+          "text": {
+            "en": "Get titles"
+          },
+          "action": "getTitles"
+        }
+      },
+      "prefix": {
+        "label": {
+          "en": "Font weight",
+          "fr": "Graisse"
+        },
+        "type": "TextSelect",
+        "options": {
+          "options": [
+            { "value": "none", "label": { "en": "None" } },
+            { "value": "dots", "label": { "en": "Dots" } },
+            { "value": "numbers", "label": { "en": "Numbers" } }
+          ]
+        }
+      }
+    }
+  }
+}
