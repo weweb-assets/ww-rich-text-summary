@@ -7,8 +7,16 @@
       @click="scrollTo(index)"
     >
       <wwObject
+        v-if="content.prefix !== 'none'"
+        v-bind="content.prefixTitle"
+        :wwProps="{
+          text: content.prefix === 'dots' ? '&bull;' : `${index + 1}. `,
+        }"
+      ></wwObject>
+      <wwObject
+        class="title__content"
         v-bind="content.title"
-        :wwProps="{ text: formatedtitle(title, index) }"
+        :wwProps="{ text: title.innerHTML }"
       ></wwObject>
     </div>
   </div>
@@ -21,6 +29,7 @@ export default {
   },
   wwDefaultContent: {
     title: wwLib.element("ww-text"),
+    prefixTitle: wwLib.element("ww-text"),
     prefix: "layout",
   },
   data() {
@@ -30,10 +39,18 @@ export default {
   },
   methods: {
     getTitles() {
-      this.titleElements = wwLib
-        .getFrontDocument()
-        .querySelector(".ww-rich-text-temp")
-        .querySelectorAll("h1");
+      setTimeout(() => {
+        this.titleElements = wwLib
+          .getFrontDocument()
+          .querySelector(".ww-rich-text-temp")
+          .querySelectorAll("h1");
+      }, 2000);
+
+      if (!this.titleElements) {
+        this.getTitles();
+      }
+
+      console.log(this.titleElements);
     },
     scrollTo(index) {
       const body = wwLib.getFrontDocument().body.getBoundingClientRect();
@@ -44,16 +61,6 @@ export default {
         top: offsetTop,
         behavior: "smooth",
       });
-    },
-    formatedtitle(title, index) {
-      switch (this.content.prefix) {
-        case "dots":
-          return `&bull; ${title.innerHTML}`;
-        case "numbers":
-          return `${index + 1}. ${title.innerHTML}`;
-        default:
-          return title.innerHTML;
-      }
     },
   },
   mounted() {
@@ -66,6 +73,12 @@ export default {
 .ww-rich-text-summary {
   .title {
     width: fit-content;
+    display: flex;
+    flex-direction: row;
+
+    &__content {
+      text-decoration: underline;
+    }
   }
 }
 </style>
