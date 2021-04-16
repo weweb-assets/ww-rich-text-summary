@@ -17,8 +17,8 @@
       },
       "prefix": {
         "label": {
-          "en": "Font weight",
-          "fr": "Graisse"
+          "en": "Prefix",
+          "fr": "Prefix"
         },
         "type": "TextSelect",
         "options": {

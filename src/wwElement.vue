@@ -50,7 +50,7 @@ export default {
         case "dots":
           return `&bull; ${title.innerHTML}`;
         case "numbers":
-          return `${index + 1} - ${title.innerHTML}`;
+          return `${index + 1}. ${title.innerHTML}`;
         default:
           return title.innerHTML;
       }
