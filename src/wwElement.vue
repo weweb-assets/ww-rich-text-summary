@@ -61,12 +61,13 @@ export default {
   },
   methods: {
     getTitles() {
+      this.titleElements = [];
       this.titleElements = wwLib
         .getFrontDocument()
         .querySelector(".ww-rich-text-temp")
         .querySelectorAll("h2");
 
-      if (!this.titleElements) {
+      if (!this.titleElements.length) {
         this.setTimeout(() => {
           this.getTitles();
         }, 1000);
