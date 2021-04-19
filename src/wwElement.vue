@@ -1,5 +1,5 @@
 <template>
-  <div class="ww-rich-text-summary">
+  <div class="ww-rich-text-summary" :style="cssStyle">
     <div
       class="title"
       v-for="(title, index) in titleElements"
@@ -31,26 +31,46 @@ export default {
     title: wwLib.element("ww-text"),
     prefixTitle: wwLib.element("ww-text"),
     prefix: "layout",
+    backgroundColor: wwLib.responsive(""),
+    hoverColor: wwLib.responsive("#DCEAED"),
+    cornerRadius: wwLib.responsive("4px"),
+    spacing: wwLib.responsive("4px"),
   },
   data() {
     return {
       titleElements: [],
     };
   },
+  watch: {
+    pageInstanceId() {
+      this.getTitles();
+    },
+  },
+  computed: {
+    pageInstanceId() {
+      return wwLib.$store.getters["cms/getPageDataIndex"];
+    },
+    cssStyle() {
+      return {
+        "--backgroundColor": this.content.backgroundColor,
+        "--hoverColor": this.content.hoverColor,
+        "--cornerRadius": this.content.cornerRadius,
+        "--spacing": this.content.spacing,
+      };
+    },
+  },
   methods: {
     getTitles() {
-      setTimeout(() => {
-        this.titleElements = wwLib
-          .getFrontDocument()
-          .querySelector(".ww-rich-text-temp")
-          .querySelectorAll("h1");
-      }, 2000);
+      this.titleElements = wwLib
+        .getFrontDocument()
+        .querySelector(".ww-rich-text-temp")
+        .querySelectorAll("h2");
 
       if (!this.titleElements) {
-        this.getTitles();
+        this.setTimeout(() => {
+          this.getTitles();
+        }, 1000);
       }
-
-      console.log(this.titleElements);
     },
     scrollTo(index) {
       const body = wwLib.getFrontDocument().body.getBoundingClientRect();
@@ -75,6 +95,17 @@ export default {
     width: fit-content;
     display: flex;
     flex-direction: row;
+
+    background-color: var(--backgroundColor);
+    border-radius: var(--cornerRadius);
+    margin-bottom: var(--spacing);
+    transition: 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--hoverColor);
+      transition: 0.3s;
+    }
 
     &__content {
       text-decoration: underline;

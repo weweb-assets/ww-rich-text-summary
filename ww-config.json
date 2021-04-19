@@ -29,6 +29,50 @@
           ]
         }
       }
+    },
+    "styleOptions": {
+      "backgroundColor": {
+        "type": "Color",
+        "label": {
+          "en": "Background color",
+          "fr": "Couleur du fond"
+        },
+        "bindable": true,
+        "options": {
+          "nullable": true
+        }
+      },
+      "hoverColor": {
+        "type": "Color",
+        "label": {
+          "en": "Hover color",
+          "fr": "Couleur au survol"
+        },
+        "bindable": true,
+        "options": {
+          "nullable": true
+        }
+      },
+      "spacing": {
+        "type": "Length",
+        "label": {
+          "en": "Spacing",
+          "fr": "Spacing"
+        },
+        "options": {
+          "unitChoices": [{ "value": "px", "label": "px", "min": 1, "max": 24 }]
+        }
+      },
+      "cornerRadius": {
+        "type": "Length",
+        "label": {
+          "en": "Corner Radius",
+          "fr": "Corner Radius"
+        },
+        "options": {
+          "unitChoices": [{ "value": "px", "label": "px", "min": 1, "max": 24 }]
+        }
+      }
     }
   }
 }
