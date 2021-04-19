@@ -100,6 +100,7 @@ export default {
     border-radius: var(--cornerRadius);
     margin-bottom: var(--spacing);
     transition: 0.3s;
+    padding: 4px 6px;
 
     &:hover {
       cursor: pointer;
