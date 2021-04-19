@@ -43,7 +43,9 @@ export default {
   },
   watch: {
     pageInstanceId() {
-      this.getTitles();
+      this.$nextTick(() => {
+        this.getTitles();
+      });
     },
   },
   computed: {
@@ -61,7 +63,6 @@ export default {
   },
   methods: {
     getTitles() {
-      this.titleElements = [];
       this.titleElements = wwLib
         .getFrontDocument()
         .querySelector(".ww-rich-text-temp")
