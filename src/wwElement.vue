@@ -35,6 +35,7 @@ export default {
     hoverColor: wwLib.responsive("#DCEAED"),
     cornerRadius: wwLib.responsive("4px"),
     spacing: wwLib.responsive("4px"),
+    underline: false,
   },
   data() {
     return {
@@ -58,6 +59,7 @@ export default {
         "--hoverColor": this.content.hoverColor,
         "--cornerRadius": this.content.cornerRadius,
         "--spacing": this.content.spacing,
+        "--underline": this.content.underline ? "underline" : "none",
       };
     },
   },
@@ -111,7 +113,7 @@ export default {
     }
 
     &__content {
-      text-decoration: underline;
+      text-decoration: var(--underline);
     }
   }
 }

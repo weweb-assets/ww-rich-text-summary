@@ -72,6 +72,13 @@
         "options": {
           "unitChoices": [{ "value": "px", "label": "px", "min": 1, "max": 24 }]
         }
+      },
+      "underline": {
+        "type": "OnOff",
+        "label": {
+          "en": "Underline?",
+          "fr": "Underline?"
+        }
       }
     }
   }
