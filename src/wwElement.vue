@@ -35,7 +35,7 @@ export default {
     },
     computed: {
         pageInstanceId() {
-            return wwLib.$store.getters['cms/getPageDataIndex'];
+            return wwLib.wwEditorHelper.getPageDataIndex();
         },
         cssStyle() {
             return {
