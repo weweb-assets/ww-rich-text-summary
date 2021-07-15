@@ -34,9 +34,11 @@ export default {
         };
     },
     computed: {
+        /* wwEditor:start */
         pageInstanceId() {
             return wwLib.wwEditorHelper.getPageDataIndex();
         },
+        /* wwEditor:end */
         cssStyle() {
             return {
                 '--backgroundColor': this.content.backgroundColor,
@@ -47,6 +49,7 @@ export default {
             };
         },
     },
+    /* wwEditor:start */
     watch: {
         pageInstanceId() {
             this.$nextTick(() => {
@@ -54,6 +57,7 @@ export default {
             });
         },
     },
+    /* wwEditor:end */
     mounted() {
         this.getTitles();
     },
