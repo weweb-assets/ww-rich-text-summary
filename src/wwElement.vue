@@ -63,11 +63,14 @@ export default {
     },
     methods: {
         getTitles() {
-            this.titleElements = wwLib.getFrontDocument().querySelector('.ww-rich-text-temp').querySelectorAll('h2');
-            if (!this.titleElements.length) {
-                this.setTimeout(() => {
-                    this.getTitles();
-                }, 1000);
+            const wwRichTextTemp = wwLib.getFrontDocument().querySelector('.ww-rich-text-temp');
+            if(wwRichTextTemp){
+                this.titleElements = wwLib.getFrontDocument().querySelector('.ww-rich-text-temp').querySelectorAll('h2');
+                if (!this.titleElements.length) {
+                    this.setTimeout(() => {
+                        this.getTitles();
+                    }, 1000);
+                }
             }
         },
         scrollTo(index) {
