@@ -58,9 +58,9 @@ export default {
                 this.titleElements = wwLib
                     .getFrontDocument()
                     .querySelector('.ww-rich-text-temp')
-                    .querySelectorAll('h2');
+                    .querySelectorAll(this.content.titlesLevel || 'h2');
                 if (!this.titleElements.length) {
-                    this.setTimeout(() => {
+                    setTimeout(() => {
                         this.getTitles();
                     }, 1000);
                 }

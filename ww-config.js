@@ -5,6 +5,23 @@ export default {
         },
     },
     properties: {
+        titlesLevel: {
+            label: {
+                en: 'Prefix',
+                fr: 'Prefix',
+            },
+            type: 'TextSelect',
+            options: {
+                options: [
+                    { value: 'h1', label: { en: 'H1' } },
+                    { value: 'h2', label: { en: 'H2' } },
+                    { value: 'h3', label: { en: 'H3' } },
+                    { value: 'h4', label: { en: 'H4' } },
+                ],
+            },
+            section: 'settings',
+            defaultValue: 'h2',
+        },
         getTitles: {
             type: 'Button',
             label: null,
