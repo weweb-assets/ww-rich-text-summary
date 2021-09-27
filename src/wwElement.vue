@@ -18,16 +18,6 @@ export default {
     props: {
         content: { type: Object, required: true },
     },
-    wwDefaultContent: {
-        title: wwLib.element('ww-text'),
-        prefixTitle: wwLib.element('ww-text'),
-        prefix: 'layout',
-        backgroundColor: wwLib.responsive(''),
-        hoverColor: wwLib.responsive('#DCEAED'),
-        cornerRadius: wwLib.responsive('4px'),
-        spacing: wwLib.responsive('4px'),
-        underline: false,
-    },
     data() {
         return {
             titleElements: [],
@@ -64,8 +54,11 @@ export default {
     methods: {
         getTitles() {
             const wwRichTextTemp = wwLib.getFrontDocument().querySelector('.ww-rich-text-temp');
-            if(wwRichTextTemp){
-                this.titleElements = wwLib.getFrontDocument().querySelector('.ww-rich-text-temp').querySelectorAll('h2');
+            if (wwRichTextTemp) {
+                this.titleElements = wwLib
+                    .getFrontDocument()
+                    .querySelector('.ww-rich-text-temp')
+                    .querySelectorAll('h2');
                 if (!this.titleElements.length) {
                     this.setTimeout(() => {
                         this.getTitles();
