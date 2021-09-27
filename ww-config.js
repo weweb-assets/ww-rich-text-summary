@@ -7,8 +7,7 @@ export default {
     properties: {
         titlesLevel: {
             label: {
-                en: 'Prefix',
-                fr: 'Prefix',
+                en: 'Titles level',
             },
             type: 'TextSelect',
             options: {
