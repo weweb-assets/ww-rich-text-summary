@@ -109,11 +109,11 @@ export default {
         },
         title: {
             hidden: true,
-            defaultValue: wwLib.element('ww-text'),
+            defaultValue: { isWwObject: true, type: 'ww-text' },
         },
         prefixTitle: {
             hidden: true,
-            defaultValue: wwLib.element('ww-text'),
+            defaultValue: { isWwObject: true, type: 'ww-text' },
         },
     },
 };
